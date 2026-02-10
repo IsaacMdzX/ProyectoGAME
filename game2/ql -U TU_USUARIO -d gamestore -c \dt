@@ -1,0 +1,21 @@
+     table_name     
+--------------------
+ _prisma_migrations
+ roles
+ usuarios
+ Category
+ Product
+ ProductImage
+ User
+ Order
+ OrderItem
+ Payment
+ users
+ products
+ categories
+ product_images
+ orders
+ order_items
+ payments
+(17 rows)
+
