@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N9LMPQBM');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Store</title>
+    <link rel="stylesheet" href="/static/css/stylee.css">
+    <link rel="icon" type="image/x-icon" href="/static/img/Icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9LMPQBM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <nav class="barra_lateral">
+        <a href="/admin"><img class="logo" src="/static/img/Icon_GS.png" alt="Logo"></a>
+        <ul>
+            <li><a class="enlace_barra_lateral_fijo" href="/admin"><i class="fa-solid fa-house"></i> Inicio </a></li>
+            <li><a class="enlace_barra_lateral" href="/admin/pedidos"><i class="fa-solid fa-truck"></i> Gestión de
+                    pedidos</a></li>
+            <li><a class="enlace_barra_lateral" href="/admin/inventario"><i class="fa-solid fa-boxes-packing"></i>
+                    Gestión de productos</a></li>
+            <li><a class="enlace_barra_lateral" href="/admin/usuarios"><i class="fa-solid fa-users"></i> Gestión de
+                    usuarios</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header class="encabezado">
+            <section class="iconos">
+                <div class="user-menu-container">
+                    <button class="user-menu-btn" id="userMenuBtn">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="dropdown-content">
+                            <div class="loading-menu">
+                                <i class="fa-solid fa-spinner fa-spin"></i> Cargando...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <main class="principal">
+            <div class="">
+                <h1>Dashboard</h1>
+                <p style="color: #a0a0a0; font-size: 16px;">Panel de control y analíticas en tiempo real</p>
+            </div>
+
+            <!-- KPIs Principales -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">💵</div>
+                    <div class="stat-label">Ventas del Día</div>
+                    <div class="stat-value" data-stat="daily-sales">$2,450</div>
+                    <div class="stat-change positive">↑ 12% vs ayer</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📦</div>
+                    <div class="stat-label">Pedidos Pendientes</div>
+                    <div class="stat-value" data-stat="pending-orders">24</div>
+                    <div class="stat-change negative">↑ 3 nuevos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⚠️</div>
+                    <div class="stat-label">Stock Bajo</div>
+                    <div class="stat-value" data-stat="low-stock">8</div>
+                    <div class="stat-change negative">Requiere atención</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-label">Clientes Activos</div>
+                    <div class="stat-value" data-stat="active-customers">892</div>
+                    <div class="stat-change positive">↑ 15% este mes</div>
+                </div>
+            </div>
+
+            <!-- Gráficos de Ventas -->
+            <div class="dashboard-grid">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Ventas Mensuales</h3>
+                        <select id="salesPeriod" class="chart-select">
+                            <option value="week">Última Semana</option>
+                            <option value="month" selected>Último Mes</option>
+                            <option value="year">Último Año</option>
+                        </select>
+                    </div>
+                    <canvas id="salesChart"></canvas>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Productos Más Vendidos</h3>
+                    </div>
+                    <canvas id="topProductsChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Actividad Reciente -->
+            <div class="section-header">
+                <h2>Actividad Reciente</h2>
+                <span class="badge">En tiempo real</span>
+            </div>
+
+            <div class="activity-grid" id="activity-grid">
+                <!-- Actividad reciente dinámica -->
+            </div>
+
+            <!-- Pedidos Recientes -->
+            <div class="section-header">
+                <h2>Pedidos Recientes</h2>
+                <button class="btn-secondary" onclick="window.location.href='/admin/pedidos'">Ver todos</button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID Pedido</th>
+                            <th>Cliente</th>
+                            <th>Producto</th>
+                            <th>Total</th>
+                            <th>Estado</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recent-orders-body">
+                        <!-- Pedidos recientes dinámicos -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        </div>
+
+        <script src="/static/js/user-menu.js"></script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="../static/js/script.js"></script>
+        <script src="../static/js/dashboard.js"></script>
+</body>
+
+</html>

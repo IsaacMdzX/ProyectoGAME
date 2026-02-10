@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N9LMPQBM');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <title>Registro - Game Store</title>
+    <link rel="icon" type="image/x-icon" href="/static/img/Icon.png">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9LMPQBM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+        <div class="principal">
+            <div class="main-content">
+                <div class="container">
+                    <h1>Crear una Cuenta</h1>
+                    <p class="description">¡Vamos a crear tu cuenta!</p>
+
+                    <form id="registro-form" class="form-section">
+                        <div class="form-line">
+                            <span class="label">Nombre De Usuario:</span>
+                            <input type="text" id="username" name="username" class="input-field" 
+                                   placeholder="Ingresa tu nombre de usuario" required>
+                            <span class="error-message" id="username-error"></span>
+                        </div>
+
+                        <div class="form-line">
+                            <span class="label">Email:</span>
+                            <input type="email" id="email" name="email" class="input-field" 
+                                   placeholder="Ingresa tu correo electrónico" required>
+                            <span class="error-message" id="email-error"></span>
+                        </div>
+
+                        <div class="form-line">
+                            <span class="label">Contraseña:</span>
+                            <input type="password" id="password" name="password" class="input-field" 
+                                   placeholder="Crea una contraseña segura" required>
+                            <span class="error-message" id="password-error"></span>
+                        </div>
+
+                        <div class="form-line">
+                            <span class="label">Confirmar Contraseña:</span>
+                            <input type="password" id="confirm-password" name="confirm_password" class="input-field" 
+                                   placeholder="Confirma tu contraseña" required>
+                            <span class="error-message" id="confirm-error"></span>
+                        </div>
+
+                        <div class="register-section">
+                            <button type="submit" class="register-btn" id="registro-btn">
+                                <i class="fa-solid fa-user-plus"></i> Crear Cuenta
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="sidebar-register-section">
+                        <p class="preguntaxd">¿Ya tienes cuenta?</p>
+                        <a class="sidebar-register-btn" href="/login">Iniciar Sesión</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script src="/static/js/user-menu.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone-min.js"></script>
+    <script src="/static/js/registro.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N9LMPQBM');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión - Game Store</title>
+    <link rel="icon" type="image/x-icon" href="/static/img/Icon.png">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9LMPQBM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+        <!-- Contenido Principal -->
+        <div class="main-content">
+            <div class="container">
+                <h1>Iniciar Sesión</h1>
+
+                <p class="description">Ingresa el nombre o correo electrónico registrado.</p>
+
+                <!-- AGREGAR ID AL FORMULARIO Y CONVERTIRLO EN FORM -->
+                <form id="login-form" class="form-section">
+                    <div class="form-line">
+                        <span class="label">Nombre de usuario o Correo electrónico</span>
+                        <!-- AGREGAR ID Y NAME -->
+                        <input type="text" id="login-input" name="login_input" class="input-field" 
+                               placeholder="Ingresa tu usuario o correo" required>
+                        <!-- AGREGAR SPAN PARA ERRORES -->
+                        <span class="error-message" id="login-input-error"></span>
+                    </div>
+
+                    <div class="form-line">
+                        <span class="label">Contraseña</span>
+                        <!-- AGREGAR ID Y NAME -->
+                        <input type="password" id="login-password" name="password" class="input-field" 
+                               placeholder="Ingresa tu contraseña" required>
+                        <!-- AGREGAR SPAN PARA ERRORES -->
+                        <span class="error-message" id="password-error"></span>
+                    </div>
+
+                    <div class="register-section">
+                        <!-- AGREGAR ID Y CAMBIAR A type="submit" -->
+                        <button type="submit" class="register-btn" id="login-btn">
+                            <i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión
+                        </button>
+                    </div>
+                </form>
+
+                <div class="sidebar-register-section">
+                    <p class="preguntaxd">¿No tienes cuenta?</p>
+                    <a class="sidebar-register-btn" href="/registro">Crear cuenta</a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- BACKBONE MODULES -->
+    <script src="/static/js/models/producto.model.js"></script>
+    <script src="/static/js/collections/productos.collection.js"></script>
+    <script src="/static/js/views/producto.view.js"></script>
+    <script src="/static/js/user-menu.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/agregar-carrito.js"></script>
+
+
+    <!-- En la sección de scripts, después de user-menu.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.1/backbone-min.js"></script>
+    <script src="/static/js/models/carrito.js"></script>
+    <script src="/static/js/views/carrito-view.js"></script>
+    <script src="/static/js/app-carrito.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone-min.js"></script>
+    <script src="/static/js/login.js"></script>
+</body>
+
+</html>

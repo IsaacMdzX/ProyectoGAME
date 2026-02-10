@@ -1,0 +1,633 @@
+/*Estilos para el registro y el inicio de sesion*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(#58009A, #623684);
+
+
+}
+
+
+/* ------------------------------------- R ------------------------------------- */
+/* ------------------------------------- E ------------------------------------- */
+/* ------------------------------------- G ------------------------------------- */
+/* ------------------------------------- I ------------------------------------- */
+/* ------------------------------------- S ------------------------------------- */
+/* ------------------------------------- R ------------------------------------- */
+/* ------------------------------------- O ------------------------------------- */
+.sidebar-register-section {
+    margin-top: auto;
+    padding-top: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar-register-btn {
+    text-decoration: none;
+    text-align: center;
+    width: 200px;
+    padding: 16px 24px;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-register-btn:hover {
+
+    transform: translateY(-2px);
+}
+
+.main-content {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    margin: 0;
+    max-width: 500px;
+    width: 1000;
+    background: #2a2a2a;
+    padding: 10px 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 2px solid #3a3a3a;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.description {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #a0a0a0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.form-section {
+    margin-bottom: 32px;
+}
+
+.form-line {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.label {
+    font-weight: 600;
+    color: #fff;
+    font-size: 15px;
+    width: 200px;
+    flex-shrink: 0;
+}
+
+.input-field {
+    flex: 1;
+    padding: 14px 16px;
+    border: 1px solid #3a3a3a;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #fff;
+    background: #1a1a1a;
+    transition: all 0.3s ease;
+}
+
+.input-field::placeholder {
+    color: #a0a0a0;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    background: #2a2a2a;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.register-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.register-btn {
+    padding: 16px 48px;
+    background: linear-gradient(135deg, #ec4899 0%, #d946ef 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.register-btn:hover {
+    background: linear-gradient(135deg, #db2777 0%, #c026d3 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(236, 72, 153, 0.5);
+}
+
+.preguntaxd {
+    color: white;
+}
+
+/* Agrega esto a tu archivo style.css */
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+.error-input {
+    border-color: #e74c3c !important;
+}
+
+.error-alerta {
+    background: #e74c3c;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.exito-alerta {
+    background: #2ecc71;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.register-btn:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Estilo para el ícono de carga */
+.fa-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* Estilos para el registro y el inicio de sesion*/
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.principal {
+    margin: 0;
+    width: 100%;
+}
+
+/* RESPONSIVE - LOGIN/REGISTRO */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 24px 20px;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 32px 24px;
+        margin: 0 16px;
+    }
+    
+    h1 {
+        font-size: 28px;
+    }
+    
+    .form-line {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 0;
+    }
+    
+    .label {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+    
+    .input-field {
+        width: 100%;
+    }
+    
+    .register-btn {
+        width: 100%;
+        padding: 16px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 24px 16px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    .description {
+        font-size: 14px;
+    }
+}
+
+/* ============================================
+   ESTILOS ESPECÍFICOS PARA REGISTRO ADMIN
+   ============================================ */
+
+/* Contenedor principal para páginas de login/registro */
+.pagina-auth {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #2d2d2d;
+}
+
+.principal-auth {
+    margin: 0;
+    width: 100%;
+}
+
+/* Contenido principal */
+.main-content-auth {
+    padding: 48px 56px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-auth {
+    max-width: 500px;
+    width: 100%;
+    background: #2a2a2a;
+    padding: 48px 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 2px solid #3a3a3a;
+}
+
+/* Títulos */
+.titulo-auth {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.descripcion-auth {
+    margin-bottom: 40px;
+    text-align: center;
+    color: #a0a0a0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* Formulario */
+.form-section-auth {
+    margin-bottom: 32px;
+}
+
+.form-line-auth {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.label-auth {
+    font-weight: 600;
+    color: #fff;
+    font-size: 15px;
+    width: 200px;
+    flex-shrink: 0;
+}
+
+.input-field-auth {
+    flex: 1;
+    padding: 14px 16px;
+    border: 1px solid #3a3a3a;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #fff;
+    background: #1a1a1a;
+    transition: all 0.3s ease;
+}
+
+.input-field-auth::placeholder {
+    color: #a0a0a0;
+}
+
+.input-field-auth:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    background: #2a2a2a;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* Botones */
+.auth-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-auth {
+    padding: 16px 48px;
+    background: linear-gradient(135deg, #ec4899 0%, #d946ef 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-auth:hover {
+    background: linear-gradient(135deg, #db2777 0%, #c026d3 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(236, 72, 153, 0.5);
+}
+
+.btn-auth:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Enlaces laterales */
+.sidebar-auth-section {
+    margin-top: auto;
+    padding-top: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-sidebar-auth {
+    text-decoration: none;
+    text-align: center;
+    width: 200px;
+    padding: 16px 24px;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-sidebar-auth:hover {
+    transform: translateY(-2px);
+}
+
+.texto-auth {
+    color: white;
+}
+
+/* Mensajes de error y éxito */
+.error-message-auth {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+.error-input-auth {
+    border-color: #e74c3c !important;
+}
+
+.error-alerta-auth {
+    background: #e74c3c;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.exito-alerta-auth {
+    background: #2ecc71;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Indicador de admin */
+.admin-badge {
+    background: #ffeb3b;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.admin-badge i {
+    color: #333;
+}
+
+.admin-badge strong {
+    color: #333;
+}
+
+/* Spinner */
+.fa-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content-auth {
+        padding: 24px 20px;
+    }
+    
+    .container-auth {
+        max-width: 100%;
+        padding: 32px 24px;
+        margin: 0 16px;
+    }
+    
+    .titulo-auth {
+        font-size: 28px;
+    }
+    
+    .form-line-auth {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 0;
+    }
+    
+    .label-auth {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+    
+    .input-field-auth {
+        width: 100%;
+    }
+    
+    .btn-auth {
+        width: 100%;
+        padding: 16px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagina-auth {
+        padding: 10px;
+    }
+    
+    .container-auth {
+        padding: 24px 16px;
+    }
+    
+    .titulo-auth {
+        font-size: 24px;
+    }
+    
+    .descripcion-auth {
+        font-size: 14px;
+    }
+}
+
+/* Estilos para PayPal */
+.paypal-buttons-container {
+    margin: 20px 0;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paypal-buttons-container iframe {
+    min-height: 45px !important;
+}
+
+.loading-paypal, .processing-payment {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+.paypal-error {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ff6b6b;
+    border-radius: 8px;
+    background: #fff5f5;
+}
+
+.btn-pago-alternativo {
+    background: #0070ba;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.btn-pago-alternativo:hover {
+    background: #005ea6;
+}
+
+.opcion-pago-unica {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.paypal-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.paypal-info i {
+    font-size: 2rem;
+    color: #0070ba;
+}
+
+.paypal-details h4 {
+    margin: 0;
+    color: #0070ba;
+}
+
+.paypal-details p {
+    margin: 5px 0 0 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.info-seguridad {
+    background: #e7f3ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.info-seguridad p {
+    margin: 5px 0;
+    color: #0066cc;
+    font-size: 0.9rem;
+}

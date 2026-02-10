@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N9LMPQBM');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Administrador - Game Store</title>
+    <link rel="stylesheet" href="/static/css/stylee.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9LMPQBM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <nav class="barra_lateral">
+        <a href="/admin"><img class="logo" src="/static/img/Icon_GS.png" alt="Logo"></a>
+        <ul>
+            <li><a class="enlace_barra_lateral" href="/admin"><i class="fa-solid fa-house"></i> Inicio </a></li>
+            <li><a class="enlace_barra_lateral" href="/admin/pedidos"><i class="fa-solid fa-truck"></i> Gestión de
+                    pedidos</a></li>
+            <li><a class="enlace_barra_lateral" href="/admin/inventario"><i class="fa-solid fa-boxes-packing"></i>
+                    Gestión de productos</a></li>
+            <li><a class="enlace_barra_lateral" href="/admin/usuarios"><i class="fa-solid fa-users"></i> Gestión de
+                    usuarios</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header class="encabezado">
+            <section class="iconos">
+                <div class="user-menu-container">
+                    <button class="user-menu-btn" id="userMenuBtn">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="dropdown-content">
+                            <div class="loading-menu">
+                                <i class="fa-solid fa-spinner fa-spin"></i> Cargando...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <div class="principal">
+            <div class="contenido-centrado">
+                <div class="perfil-contenedor-centrado">
+                    <h1 class="titulo-centrado">Mi perfil</h1>
+
+                    <div class="perfil-card-centrado">
+                        <h2 class="nombre-usuario">{{ usuario.nombre_usuario }}</h2>
+                        <p class="numero-cliente">Administrador #{{ usuario.id_usuario }}</p>
+
+                        <div class="separador"></div>
+
+                        <div class="datos-usuario">
+                            <div class="dato-fila">
+                                <span class="dato-label">Email:</span>
+                                <span class="dato-valor">{{ usuario.correo }}</span>
+                            </div>
+                            <div class="dato-fila">
+                                <span class="dato-label">Rol:</span>
+                                <span class="dato-valor">Administrador</span>
+                            </div>
+                            <div class="dato-fila">
+                                <span class="dato-label">ID de Usuario:</span>
+                                <span class="dato-valor">{{ usuario.id_usuario }}</span>
+                            </div>
+                        </div>
+
+                        <div class="separador"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/js/user-menu.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: gamestore
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn run:app  
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: gamestore-db
+          property: connectionString
+
+databases:
+  - name: gamestore-db
+    plan: free

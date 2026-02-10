@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N9LMPQBM');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos - Admin</title>
+    <link rel="stylesheet" href="/static/css/stylee.css">
+    <link rel="icon" type="image/x-icon" href="/static/img/Icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9LMPQBM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <nav class="barra_lateral">
+        <a href="/admin"><img class="logo" src="/static/img/Icon_GS.png" alt="Logo"></a>
+        <ul>
+            <li><a class="enlace_barra_lateral" href="/admin"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a class="enlace_barra_lateral" href="/admin/pedidos"><i class="fa-solid fa-truck"></i> Gestión de
+                    pedidos</a></li>
+            <li><a class="enlace_barra_lateral_fijo" href="/admin/inventario"><i class="fa-solid fa-boxes-packing"></i>
+                    Gestión de productos</a></li>
+            <li><a class="enlace_barra_lateral" href="/admin/usuarios"><i class="fa-solid fa-users"></i> Gestión de
+                    usuarios</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header class="encabezado">
+
+            <section class="iconos">
+                <div class="user-menu-container">
+                    <button class="user-menu-btn" id="userMenuBtn">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="dropdown-content">
+                            <div class="loading-menu">
+                                <i class="fa-solid fa-spinner fa-spin"></i> Cargando...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <div class="principal">
+            <h1>Gestión de Productos</h1>
+            <!--LIMPIAR STOCK-->
+            <!--
+                <button class="btn-limpiar-stock" id="btn-limpiar-stock">
+        <i class="fa-solid fa-broom"></i> Limpiar Stock Cero
+    </button>
+-->
+            <!-- Filtros -->
+            <div class="filtros-container">
+                <div class="search-container">
+                    <input type="text" class="search-input" id="search-admin" placeholder="Buscar productos...">
+                    <button class="search-button" id="search-btn-admin"><i
+                            class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+                <div class="filtros-categorias">
+                    <select id="filtro-categoria" class="filtro-select">
+                        <option value="">Todas las categorías</option>
+                    </select>
+
+                    <select id="filtro-estado" class="filtro-select">
+                        <option value="">Todos los estados</option>
+                        <option value="activo">Activos</option>
+                        <option value="inactivo">Inactivos</option>
+                    </select>
+                </div>
+
+                <!-- ✅ ESTE ES EL BOTÓN IMPORTANTE -->
+                <button class="btn-primary" id="btn-agregar-producto">
+                    <i class="fa-solid fa-plus"></i> Agregar Producto
+                </button>
+            </div>
+
+            <!-- Estadísticas -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-boxes"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="total-productos">0</span>
+                        <span class="stat-label">Total Productos</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="productos-activos">0</span>
+                        <span class="stat-label">Productos Activos</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-times-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="productos-inactivos">0</span>
+                        <span class="stat-label">Productos Inactivos</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="stock-bajo">0</span>
+                        <span class="stat-label">Stock Bajo &lt 10</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lista de productos -->
+            <div class="productos-admin-container">
+                <div class="table-container">
+                    <table id="tabla-productos">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Categoría</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productos-body">
+                            <!-- Los productos se cargarán dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para agregar/editar producto -->
+    <div id="modal-producto" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-titulo">Agregar Producto</h2>
+                <button class="modal-close" id="modal-cerrar">&times;</button>
+            </div>
+            <form id="form-producto">
+                <input type="hidden" id="producto-id">
+
+                <div class="form-group">
+                    <label for="producto-nombre" class="required">Nombre del Producto</label>
+                    <input type="text" id="producto-nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="producto-descripcion">Descripción</label>
+                    <textarea id="producto-descripcion" rows="3"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="producto-precio" class="required">Precio</label>
+                        <input type="number" id="producto-precio" step="0.01" min="0.01" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="producto-stock" class="required">Stock</label>
+                        <input type="number" id="producto-stock" min="0" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="producto-categoria" class="required">Categoría</label>
+                        <select id="producto-categoria" required>
+                            <option value="">Seleccionar categoría</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="producto-imagen" class="required">URL de la Imagen</label>
+                        <input type="text" id="producto-imagen" placeholder="https://ejemplo.com/imagen.jpg" required>
+                    </div>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label for="producto-activo">
+                        <input type="checkbox" id="producto-activo" checked>
+                        Producto Activo
+                    </label>
+                </div>
+
+                <div class="modal-actions">
+                    <!--<button type="button" class="btn-secondary" id="btn-cancelar">Cancelar</button> -->
+                    <button type="submit" class="btn-primary" id="btn-guardar">Guardar Producto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/user-menu.js"></script>
+    <script src="/static/js/admin-inventario.js"></script>
+</body>
+
+</html>

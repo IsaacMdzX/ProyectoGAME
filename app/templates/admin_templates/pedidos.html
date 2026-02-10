@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+
+
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N9LMPQBM');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Pedidos - Admin</title>
+    <link rel="stylesheet" href="/static/css/stylee.css">
+    <link rel="icon" type="image/x-icon" href="/static/img/Icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9LMPQBM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <nav class="barra_lateral">
+        <a href="/admin"><img class="logo" src="/static/img/Icon_GS.png" alt="Logo"></a>
+        <ul>
+            <li><a class="enlace_barra_lateral" href="/admin"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a class="enlace_barra_lateral_fijo" href="/admin/pedidos"><i class="fa-solid fa-truck"></i> Gestión de
+                    pedidos</a></li>
+            <li><a class="enlace_barra_lateral" href="/admin/inventario"><i class="fa-solid fa-boxes-packing"></i>
+                    Gestión de productos</a></li>
+            <li><a class="enlace_barra_lateral" href="/admin/usuarios"><i class="fa-solid fa-users"></i> Gestión de
+                    usuarios</a></li>
+        </ul>
+    </nav>
+
+
+
+
+    <main>
+        <header class="encabezado">
+            <section class="iconos">
+                <div class="user-menu-container">
+                    <button class="user-menu-btn" id="userMenuBtn">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="dropdown-content">
+                            <div class="loading-menu">
+                                <i class="fa-solid fa-spinner fa-spin"></i> Cargando...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+
+
+
+        <div class="principal">
+            <h1>Gestión de Pedidos</h1>
+
+
+
+
+            <!-- Filtros -->
+            <div class="filtros-pedidos">
+                <div class="search-container">
+                    <input type="text" class="search-input" id="searchInput"
+                        placeholder="Buscar pedidos por cliente, producto o ID...">
+                    <button class="search-button" id="searchButton">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+
+
+
+
+                <select class="filtro-select" id="filtroEstado">
+                    <option value="">Todos los estados</option>
+                    <option value="pendiente">Pendiente</option>
+                    <option value="procesando">Procesando</option>
+                    <option value="completado">Completado</option>
+                    <option value="cancelado">Cancelado</option>
+                </select>
+
+
+
+
+                <input type="date" class="filtro-select" id="filtroFechaInicio" placeholder="Fecha inicio">
+                <input type="date" class="filtro-select" id="filtroFechaFin" placeholder="Fecha fin">
+
+
+
+
+                <button class="btn-secondary" id="btnLimpiarFiltros">
+                    <i class="fa-solid fa-broom"></i> Limpiar filtros
+                </button>
+            </div>
+
+
+
+
+            <div class="section-header">
+                <h2>Todos los Pedidos</h2>
+                <span class="badge" id="contadorPedidos">0 pedidos</span>
+            </div>
+
+
+
+
+            <!-- Loading -->
+            <div id="loadingPedidos" class="loading-container">
+                <i class="fa-solid fa-spinner fa-spin"></i> Cargando pedidos...
+            </div>
+
+
+
+
+            <!-- Tabla de pedidos -->
+            <div class="table-container" id="tablaPedidosContainer" style="display: none;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID Pedido</th>
+                            <th>Cliente</th>
+                            <th>Producto(s)</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                            <th>Estado</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyPedidos">
+                        <!-- Los pedidos se cargarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+            <!-- Mensaje cuando no hay pedidos -->
+            <div id="noPedidos" class="no-data-message" style="display: none;">
+                <i class="fa-solid fa-box-open"></i>
+                <h3>No hay pedidos</h3>
+                <p>No se encontraron pedidos con los filtros aplicados.</p>
+            </div>
+        </div>
+    </main>
+
+
+
+
+    <!-- Modal para detalles del pedido -->
+    <div id="modalDetallePedido" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Detalle del Pedido <span id="modalNumeroPedido"></span></h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBodyDetalle">
+                <!-- Contenido dinámico -->
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/admin-pedidos.js"></script>
+    <script src="/static/js/user-menu.js"></script>
+    <script src="../static/js/script.js"></script>
+</body>
+
+
+
+
+</html>

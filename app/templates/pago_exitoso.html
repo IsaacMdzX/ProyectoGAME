@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N9LMPQBM');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <title>Carrito</title>
+    <link rel="icon" type="image/x-icon" href="/static/img/Icon.png">
+    <link rel="stylesheet" href="/static/css/stylee.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- REMOVIDO: El SDK de PayPal ahora se carga dinámicamente -->
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9LMPQBM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <nav class="barra_lateral">
+        <a href="/"><img class="logo" src="/static/img/Icon_GS.png" alt="Logo"></a>
+        <ul>
+            <li><a class="enlace_barra_lateral" href="/"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li>
+                <h3>Mis compras y deseos</h3>
+            </li>
+            <li><a class="enlace_barra_lateral" href="/favoritos"><i class="fa-solid fa-heart"></i> Favoritos</a></li>
+            <li><a class="enlace_barra_lateral" href="/pedidos"><i class="fa-solid fa-box"></i> Pedidos</a></li>
+            <li>
+                <h3>Categorías</h3>
+            </li>
+            <li><a class="enlace_barra_lateral" href="/juegos"><i class="fa-solid fa-ghost"></i> Juegos</a></li>
+            <li><a class="enlace_barra_lateral" href="/accesorios"><i class="fa-solid fa-headset"></i> Accesorios</a>
+            </li>
+            <li><a class="enlace_barra_lateral" href="/consolas"><i class="fa-solid fa-tv"></i> Consolas</a></li>
+            <li><a class="enlace_barra_lateral" href="/controles"><i class="fa-solid fa-gamepad"></i> Controles</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header class="encabezado">
+            <section class="buscador">
+                <input type="text" id="buscar-input" placeholder="Buscar producto">
+                <button class="btn_buscar" id="btn-buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </section>
+
+            <section class="iconos">
+                <button class="btn_notificaciones" id="mostrarNotificaciones"><i class="fa-solid fa-bell"></i></button>
+                <a class="icon carrito-link" href="/carrito">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+
+                <!-- Menu usuario -->
+                <div class="user-menu-container">
+                    <button class="user-menu-btn" id="userMenuBtn">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="dropdown-content">
+                            <!-- El contenido se cargará dinámicamente -->
+                            <div class="loading-menu">
+                                <i class="fa-solid fa-spinner fa-spin"></i> Cargando...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+    <div class="container">
+        <div class="compra-exitosa">
+            <div class="icono-exito">
+                <i class="fa-solid fa-check-circle"></i>
+            </div>
+            <h2>¡Pago Exitoso!</h2>
+            <p>Tu pago ha sido procesado correctamente</p>
+            
+            <div class="detalles-pedido" id="detallesPedido">
+                <div class="loading-pedido">
+                    <i class="fa-solid fa-spinner fa-spin"></i> Cargando detalles del pedido...
+                </div>
+            </div>
+            
+            <div class="detalles-compra">
+                <p id="pasarelaPagoLinea"><i class="fa-solid fa-check"></i> Pago confirmado</p>
+                <p><i class="fa-solid fa-check"></i> Pedido procesado</p>
+                <p><i class="fa-solid fa-check"></i> Recibirás un email de confirmación</p>
+            </div>
+            <div class="acciones-compra">
+                <a href="/pedidos" class="btn-ver-pedidos">
+                    <i class="fa-solid fa-list"></i> Ver mis pedidos
+                </a>
+                <a href="/" class="btn-seguir-comprando">
+                    <i class="fa-solid fa-shopping-cart"></i> Seguir comprando
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cargar detalles del pedido desde la URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const pedidoId = urlParams.get('pedido_id');
+            // Detectar parámetros de Mercado Pago (collection_id, payment_id, preference_id)
+            const mpPaymentId = urlParams.get('payment_id') || urlParams.get('collection_id') || urlParams.get('collection_id');
+            const mpPref = urlParams.get('preference_id');
+
+            // Actualizar línea que indica la pasarela de pago
+            const pasarelaLinea = document.getElementById('pasarelaPagoLinea');
+            if (mpPaymentId) {
+                pasarelaLinea.innerHTML = '<i class="fa-solid fa-check"></i> Pago confirmado por Mercado Pago';
+            } else if (urlParams.get('paypal_order_id') || urlParams.get('paypalId')) {
+                pasarelaLinea.innerHTML = '<i class="fa-solid fa-check"></i> Pago confirmado por PayPal';
+            } else {
+                pasarelaLinea.innerHTML = '<i class="fa-solid fa-check"></i> Pago confirmado';
+            }
+            
+            if (pedidoId) {
+                cargarDetallesPedido(pedidoId);
+            }
+        });
+
+        async function cargarDetallesPedido(pedidoId) {
+            try {
+                const response = await fetch(`/api/pedidos/detalles/${pedidoId}`);
+                const data = await response.json();
+                
+                const container = document.getElementById('detallesPedido');
+                
+                if (data.success) {
+                    container.innerHTML = `
+                        <div class="info-pedido">
+                            <p><strong>Número de pedido:</strong> #${data.pedido.id_pedido}</p>
+                            <p><strong>Total:</strong> $${parseFloat(data.pedido.total).toFixed(2)}</p>
+                            <p><strong>Fecha:</strong> ${new Date(data.pedido.fecha_pedido).toLocaleDateString()}</p>
+                            <p><strong>Estado:</strong> <span class="estado-pedido">${data.pedido.estado}</span></p>
+                        </div>
+                    `;
+                } else {
+                    container.innerHTML = `<p class="error">No se pudieron cargar los detalles del pedido</p>`;
+                }
+            } catch (error) {
+                console.error('Error cargando detalles del pedido:', error);
+                document.getElementById('detallesPedido').innerHTML = 
+                    `<p class="error">Error al cargar detalles del pedido</p>`;
+            }
+        }
+    </script>
+    <script src="/static/js/user-menu.js"></script>
+</body>
+</html>

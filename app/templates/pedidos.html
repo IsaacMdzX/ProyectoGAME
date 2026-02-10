@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N9LMPQBM');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <title>Game Store</title>
+    <link rel="icon" type="image/x-icon" href="/static/img/Icon.png">
+    <link rel="stylesheet" href="/static/css/stylee.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script></script>
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9LMPQBM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <nav class="barra_lateral">
+        <a href="/"><img class="logo" src="/static/img/Icon_GS.png" alt="Logo"></a>
+        <ul>
+            <li><a class="enlace_barra_lateral" href="/"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li>
+                <h3>Mis compras y deseos</h3>
+            </li>
+            <li><a class="enlace_barra_lateral" href="/favoritos"><i class="fa-solid fa-heart"></i> Favoritos</a></li>
+            <li><a class="enlace_barra_lateral_fijo" href="/pedidos"><i class="fa-solid fa-box"></i> Pedidos</a></li>
+            <li>
+                <h3>Categorías</h3>
+            </li>
+            <li><a class="enlace_barra_lateral" href="/juegos"><i class="fa-solid fa-ghost"></i> Juegos</a></li>
+            <li><a class="enlace_barra_lateral" href="/accesorios"><i class="fa-solid fa-headset"></i> Accesorios</a>
+            </li>
+            <li><a class="enlace_barra_lateral" href="/consolas"><i class="fa-solid fa-tv"></i> Consolas</a></li>
+            <li><a class="enlace_barra_lateral" href="/controles"><i class="fa-solid fa-gamepad"></i> Controles</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header class="encabezado">
+            <section class="buscador">
+                <input type="text" id="buscar" placeholder="Buscar producto">
+                <button class="btn_buscar" id="buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </section>
+
+            <section class="iconos">
+                <button class="btn_notificaciones" id="mostrarNotificaciones"><i class="fa-solid fa-bell"></i>
+                </button>
+                <a class="icon carrito-link" href="/carrito">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="carrito-count">0</span>
+                </a>
+
+                <!-- Menu usuario -->
+                <div class="user-menu-container">
+                    <button class="user-menu-btn" id="userMenuBtn">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="dropdown-content">
+                            <!-- El contenido se cargará dinámicamente -->
+                            <div class="loading-menu">
+                                <i class="fa-solid fa-spinner fa-spin"></i> Cargando...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </header>
+
+
+
+
+        <!-- Contenido Principal -->
+        <div class="principal" style="color: white;">
+            <h1>Mis Pedidos</h1>
+            <p class="header-subtitle">Revisa el estado de tus compras</p>
+
+
+            <main class="pedidos-container">
+                <div class="pedidos-header">
+                    <button class="filtro-pedidos">
+                        <i class="fa-solid fa-filter"></i>
+                        Filtrar Pedidos
+                    </button>
+                </div>
+
+                <div class="lista-pedidos">
+                    <!-- Pedido 1 -->
+                    <div class="pedido-item">
+                        <div class="pedido-image-container">
+                            <img src="/static/img/Imagenes/grounded2.png" alt="Gears 5" class="pedido-imagen">
+                        </div>
+                        <div class="pedido-info">
+                            <h3 class="product-title">Grounded 2</h3>
+                            <p><strong>Fecha de Compra:</strong> 12/05/2025 15:13 hrs</p>
+                            <p><strong>Fecha de Entrega:</strong> 14/05/2025 8:00 a 20:00 hrs</p>
+                            <p class="estado-pedido entregado">Entregado</p>
+                        </div>
+                        <button class="pedido-detalles">
+                            <i class="fa-solid fa-eye"></i>
+                            Detalles
+                        </button>
+                    </div>
+
+                    <!-- Pedido 2 -->
+                    <div class="pedido-item">
+                        <div class="pedido-image-container">
+                            <img src="/static/img/Imagenes/howards.png" alt="Star Wars" class="pedido-imagen">
+                        </div>
+                        <div class="pedido-info">
+                            <h3 class="product-title">Howards Legacy</h3>
+                            <p><strong>Fecha de Compra:</strong> 12/05/2025 15:13 hrs</p>
+                            <p><strong>Fecha de Entrega:</strong> 14/05/2025 8:00 a 20:00 hrs</p>
+                            <p class="estado-pedido enviado">En camino</p>
+                        </div>
+                        <button class="pedido-detalles">
+                            <i class="fa-solid fa-eye"></i>
+                            Detalles
+                        </button>
+                    </div>
+
+                    <!-- Pedido 3 -->
+                    <div class="pedido-item">
+                        <div class="pedido-image-container">
+                            <img src="/static/img/Imagenes/series x especial.png" alt="Xbox Series X"
+                                class="pedido-imagen">
+                        </div>
+                        <div class="pedido-info">
+                            <h3 class="product-title">Xbox Series X 2TB Galaxy Black</h3>
+                            <p><strong>Fecha de Compra:</strong> 12/05/2025 15:13 hrs</p>
+                            <p><strong>Fecha de Entrega:</strong> 14/05/2025 8:00 a 20:00 hrs</p>
+                            <p class="estado-pedido procesando">Procesando</p>
+                        </div>
+                        <button class="pedido-detalles">
+                            <i class="fa-solid fa-eye"></i>
+                            Detalles
+                        </button>
+                    </div>
+
+                    <!-- Pedido 4 -->
+                    <div class="pedido-item">
+                        <div class="pedido-image-container">
+                            <img src="/static/img/Imagenes/controlxboxblack.png" alt="Control Xbox"
+                                class="pedido-imagen">
+                        </div>
+                        <div class="pedido-info">
+                            <h3 class="product-title">Control Xbox Inalámbrico</h3>
+                            <p><strong>Fecha de Compra:</strong> 12/05/2025 15:13 hrs</p>
+                            <p><strong>Fecha de Entrega:</strong> 14/05/2025 8:00 a 20:00 hrs</p>
+                            <p class="estado-pedido entregado">Entregado</p>
+                        </div>
+                        <button class="pedido-detalles">
+                            <i class="fa-solid fa-eye"></i>
+                            Detalles
+                        </button>
+                    </div>
+                </div>
+
+                <!--
+            <div class="no-pedidos">
+                <i class="fa-solid fa-box-open"></i>
+                <h2>No tienes pedidos aún</h2>
+                <p>Cuando realices una compra, tus pedidos aparecerán aquí</p>
+            </div>
+            -->
+            </main>
+        </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/user-menu.js"></script>
+    <script src="/static/js/productos-dinamicos.js"></script>
+    <script src="/static/js/carrito-dinamico.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.1/backbone-min.js"></script>
+    <script src="/static/js/favoritos-backbone.js"></script>
+    <script src="/static/js/carrito-sync.js"></script>
+
+</body>
+
+</html>

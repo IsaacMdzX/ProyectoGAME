@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N9LMPQBM');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <title>Registro Admin - Game Store</title>
+    <link rel="icon" type="image/x-icon" href="/static/img/Icon.png">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body class="pagina-auth">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9LMPQBM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <main>
+        <div class="principal-auth">
+            <div class="main-content-auth">
+                <div class="container-auth">
+                    <h1 class="titulo-auth">Crear Cuenta de Administrador</h1>
+
+                    <form id="registro-form" class="form-section-auth">
+                        <div class="form-line-auth">
+                            <span class="label-auth">Nombre De Usuario:</span>
+                            <input type="text" id="username" name="username" class="input-field-auth"
+                                placeholder="Ingresa tu nombre de usuario" required>
+                            <span class="error-message-auth" id="username-error"></span>
+                        </div>
+
+                        <div class="form-line-auth">
+                            <span class="label-auth">Email:</span>
+                            <input type="email" id="email" name="email" class="input-field-auth"
+                                placeholder="Ingresa tu correo electrónico" required>
+                            <span class="error-message-auth" id="email-error"></span>
+                        </div>
+
+                        <div class="form-line-auth">
+                            <span class="label-auth">Contraseña:</span>
+                            <input type="password" id="password" name="password" class="input-field-auth"
+                                placeholder="Crea una contraseña segura" required>
+                            <span class="error-message-auth" id="password-error"></span>
+                        </div>
+
+                        <div class="form-line-auth">
+                            <span class="label-auth">Confirmar Contraseña:</span>
+                            <input type="password" id="confirm-password" name="confirm_password"
+                                class="input-field-auth" placeholder="Confirma tu contraseña" required>
+                            <span class="error-message-auth" id="confirm-error"></span>
+                        </div>
+
+                        <div class="auth-section">
+                            <button type="submit" class="btn-auth" id="registro-btn">
+                                <i class="fa-solid fa-shield-alt"></i> Crear Cuenta de Admin
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="sidebar-auth-section">
+                        <p class="texto-auth">¿Ya tienes cuenta?</p>
+                        <a class="btn-sidebar-auth" href="/login">Iniciar Sesión</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Scripts -->
+    <script src="/static/js/user-menu.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.1/backbone-min.js"></script>
+    <script src="/static/js/favoritos-backbone.js"></script>
+    <script src="/static/js/registro-admin.js"></script>
+
+</body>
+</html>
