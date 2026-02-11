@@ -124,3 +124,8 @@ def create_app():
             atexit.register(lambda: scheduler.shutdown())
     
     return app
+
+if __name__ == '__main__':
+    # Esto crea la app usando el factory y la ejecuta cuando se ejecuta este módulo directamente
+    app = create_app()
+    app.run(host='0.0.0.0', port=5000, debug=True)
